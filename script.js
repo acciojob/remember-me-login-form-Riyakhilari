@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const submitBtn = document.getElementById("submit");
     const existingBtn = document.getElementById("existing");
 
-    // Check if saved data exists in localStorage
+   
     const savedUsername = localStorage.getItem("username");
     const savedPassword = localStorage.getItem("password");
 
