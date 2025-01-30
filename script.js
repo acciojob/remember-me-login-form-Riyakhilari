@@ -9,10 +9,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedUsername = localStorage.getItem("username");
     const savedPassword = localStorage.getItem("password");
 
+    // Show 'Login as existing user' button if saved credentials exist
     if (savedUsername && savedPassword) {
         existingBtn.style.display = "block";
+    } else {
+        existingBtn.style.display = "none";
     }
 
+    // Ensure the label for 'username' is present before interacting
+    const usernameLabel = document.querySelector("label[for='username']");
+    if (usernameLabel) {
+        console.log("Username label is visible");
+    } else {
+        console.error("Username label not found");
+    }
+
+    // Handle form submission
     document.getElementById("loginForm").addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent form submission
 
@@ -33,10 +45,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         alert(`Logged in as ${username}`);
-        existingBtn.style.display = "block";
+        existingBtn.style.display = "block"; // Show the existing login button
     });
 
+    
     existingBtn.addEventListener("click", function () {
-        alert(`Logged in as ${savedUsername}`);
+        if (savedUsername) {
+            alert(`Logged in as ${savedUsername}`);
+        }
     });
 });
