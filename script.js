@@ -5,18 +5,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const submitBtn = document.getElementById("submit");
     const existingBtn = document.getElementById("existing");
 
-    // Check if saved data exists in localStorage
+    
     const savedUsername = localStorage.getItem("username");
     const savedPassword = localStorage.getItem("password");
 
-    // Show 'Login as existing user' button if saved credentials exist
+    
     if (savedUsername && savedPassword) {
         existingBtn.style.display = "block";
     } else {
         existingBtn.style.display = "none";
     }
 
-    // Ensure the label for 'username' is present before interacting
+    
     const usernameLabel = document.querySelector("label[for='username']");
     if (usernameLabel) {
         console.log("Username label is visible");
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Username label not found");
     }
 
-    // Handle form submission
+    
     document.getElementById("loginForm").addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent form submission
 
